@@ -35,6 +35,12 @@ class TestEcho(unittest.TestCase):
             ["python", "echo.py", "heLLo wOrld", "-t"]).decode().strip()
         self.assertEqual(title_out, 'Hello World')
 
+    def test_all_args(self):
+        all_args_out = check_output(
+            ["python", "echo.py", "heLLo wOrld", "-ult"]).decode().strip()
+        self.assertEqual(
+            all_args_out, 'Only one optional argument can be supplied.')
+
 
 if __name__ == '__main__':
     unittest.main()
