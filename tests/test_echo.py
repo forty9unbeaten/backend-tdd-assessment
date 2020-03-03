@@ -19,10 +19,16 @@ class TestEcho(unittest.TestCase):
         self.assertEqual(stdout, help_output)
 
     def test_upper(self):
-        """ Test the --upper / -u functionality"""
+        """ Test the --upper / -u functionality """
         upper_out = check_output(
             ["python", "echo.py", "heLLo wOrld", "-u"]).decode().strip()
         self.assertEqual(upper_out, 'HELLO WORLD')
+
+    def test_lower(self):
+        """ Test the --lower / -u functionality """
+        lower_out = check_output(
+            ["python", "echo.py", "heLLo wOrld", "-l"]).decode().strip()
+        self.assertEqual(lower_out, 'hello world')
 
 
 if __name__ == '__main__':
