@@ -30,6 +30,11 @@ class TestEcho(unittest.TestCase):
             ["python", "echo.py", "heLLo wOrld", "-l"]).decode().strip()
         self.assertEqual(lower_out, 'hello world')
 
+    def test_title(self):
+        title_out = check_output(
+            ["python", "echo.py", "heLLo wOrld", "-t"]).decode().strip()
+        self.assertEqual(title_out, 'Hello World')
+
 
 if __name__ == '__main__':
     unittest.main()
