@@ -26,10 +26,13 @@ def create_parser():
     return parser
 
 
-def main(args):
+def main():
     """Implementation of echo"""
     nspace = create_parser().parse_args()
 
+    if nspace.upper:
+        print(nspace.text.upper())
+
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main()
