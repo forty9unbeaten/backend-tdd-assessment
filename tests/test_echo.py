@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-import echo
 from subprocess import Popen, PIPE, check_output
 
 # Your test case class goes here
@@ -35,6 +34,12 @@ class TestEcho(unittest.TestCase):
         title_output = check_output(
             ["python", "echo.py", "heLLo wOrld", "-t"]).decode().strip()
         self.assertEqual(title_output, 'Hello World')
+
+    def test_text(self):
+        """ Test functionality when only text is supplied """
+        text_output = check_output(
+            ["python", "echo.py", "heLLo wOrld"]).decode().strip()
+        self.assertEqual(text_output, 'heLLo wOrld')
 
     def test_all_args(self):
         """ Test functionality when all optional arguments are supplied """
