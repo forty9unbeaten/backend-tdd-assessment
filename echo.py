@@ -30,8 +30,21 @@ def main():
     """Implementation of echo"""
     nspace = create_parser().parse_args()
 
-    if nspace.upper:
-        print(nspace.text.upper())
+    upper = nspace.upper
+    lower = nspace.lower
+    title = nspace.title
+    text = nspace.text
+
+    if upper and not lower and not title:
+        print(text.upper())
+    elif lower and not upper and not title:
+        print(text.lower())
+    elif title and not upper and not lower:
+        print(text.title())
+    elif not upper and not lower and not title:
+        print(text)
+    else:
+        print('Only one optional argument can be supplied.')
 
 
 if __name__ == '__main__':
